@@ -195,7 +195,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except:
                     pass
             else:
-                await query.answer("That's not for you!!", show_alert=True)
+                await query.answer("എന്റെ മോനെ ഇത് നിനക്ക് ഉള്ളത് അല്ല🤭....", show_alert=True)
     elif "groupcb" in query.data:
         await query.answer()
 
@@ -215,8 +215,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton(f"{stat}", callback_data=f"{cb}:{group_id}"),
-             InlineKeyboardButton("DELETE", callback_data=f"deletecb:{group_id}")],
-            [InlineKeyboardButton("BACK", callback_data="backcb")]
+             InlineKeyboardButton("🚫 DELETE", callback_data=f"deletecb:{group_id}")],
+            [InlineKeyboardButton("◀️ BACK", callback_data="backcb")]
         ])
 
         await query.message.edit_text(
@@ -240,11 +240,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         if mkact:
             await query.message.edit_text(
-                f"Connected to **{title}**",
+                f"✔️ Connected to **{title}**",
                 parse_mode="md"
             )
         else:
-            await query.message.edit_text('Some error occurred!!', parse_mode="md")
+            await query.message.edit_text('🚫 Some error occurred!!', parse_mode="md")
         return await query.answer('Piracy Is Crime')
     elif "disconnect" in query.data:
         await query.answer()
@@ -260,12 +260,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         if mkinact:
             await query.message.edit_text(
-                f"Disconnected from **{title}**",
+                f"🚫 Disconnected from **{title}**",
                 parse_mode="md"
             )
         else:
             await query.message.edit_text(
-                f"Some error occurred!!",
+                f"🚫 Some error occurred!!",
                 parse_mode="md"
             )
         return await query.answer('Piracy Is Crime')
@@ -279,11 +279,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         if delcon:
             await query.message.edit_text(
-                "Successfully deleted connection"
+                "✔️ Successfully deleted connection"
             )
         else:
             await query.message.edit_text(
-                f"Some error occurred!!",
+                f"🚫 Some error occurred!!",
                 parse_mode="md"
             )
         return await query.answer('Piracy Is Crime')
@@ -295,7 +295,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         groupids = await all_connections(str(userid))
         if groupids is None:
             await query.message.edit_text(
-                "There are no active connections!! Connect to some groups first.",
+                "😒 There are no active connections!! Connect to some groups first.",
             )
             return await query.answer('Piracy Is Crime')
         buttons = []
@@ -364,16 +364,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                await query.answer('File ഞാൻ സ്വകാര്യമായി (PM) അയച്ചിട്ടുണ്ട്.... അവിടെ പോയി നോക്ക് ഫയൽ ഉണ്ട് 😜....'', show_alert=True)
         except UserIsBlocked:
-            await query.answer('Unblock the bot mahn !', show_alert=True)
+            await query.answer('നീ എന്നെ BLOCK ആക്കി വച്ചിരിക്കുകയാണ്🤕..... എന്നെ UN-BLOCK ചെയ്താലേ നിനക്ക് പടം അയക്കാൻ കഴിയുകയുള്ളൂ🤐🤐.....!', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
+            await query.answer("എന്നോട് കളിക്കല്ലേ മോനെ😉... നീ ആദ്യം ജോയിൻ ചെയ്യ്.....", show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
