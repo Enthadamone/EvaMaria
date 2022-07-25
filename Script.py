@@ -3,7 +3,7 @@ class script(object):
 <b>My Name is <a href='https://t.me/Filterbetterbot'>Filter Bot</a>, \nI can provide movies in your Group, \nJust add me to your group and i will do my work 😜.....</b>"""
     HELP_TXT = """Hoi {}
 <b>Here is the help for my COMMANDs.</b>"""
-ABOUT_TXT = """✯ <b>My Name: Filter Bot </b>
+    ABOUT_TXT = """✯ <b>My Name: Filter Bot </b>
 ✯ <b>Creator: <a href='https://t.me/rahulp_r'>This Person</a> </b> 
 ✯ <b>Library: Pyrogram</b>
 ✯ <b>Language: Python 3</b>
